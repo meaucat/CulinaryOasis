@@ -1,0 +1,117 @@
+﻿<Page x:Class="CulinaryOasis.Pages.EditStaffPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:CulinaryOasis.Pages"
+      mc:Ignorable="d" 
+      d:DesignHeight="760" d:DesignWidth="1248"
+      Title="EditStaffPage">
+
+    <Grid>
+        <Grid.Effect>
+            <DropShadowEffect BlurRadius="30" ShadowDepth="1" Opacity="0.4"/>
+        </Grid.Effect>
+
+
+        <Border Background="AliceBlue" CornerRadius="0 10 10 0">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+
+                <Grid.RowDefinitions>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                </Grid.RowDefinitions>
+
+                <TextBlock Text="Список сотрудников" FontSize="40" Grid.Row="0" Grid.Column="1" Grid.ColumnSpan="3" HorizontalAlignment="Center" VerticalAlignment="Center" FontWeight="Bold"/>
+                <TextBlock Text="Для удаления сотрудника сначала нажмите на него, а потом на кнопку" FontSize="25" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="5" HorizontalAlignment="Center" VerticalAlignment="Bottom" Margin="0 0 0 20"/>
+
+
+                <ListView 
+                    x:Name="StaffLV"
+                    Width="1000"
+                    Height="450"
+                    Grid.ColumnSpan="5"
+                    Grid.Row="1"
+                    Grid.RowSpan="3"
+                    FontSize="20" SelectionChanged="StaffLV_SelectionChanged" MouseDoubleClick="StaffLV_MouseDoubleClick">
+                    <ListView.View>
+                        <GridView>
+                            <GridView.Columns>
+
+                                <GridViewColumn Header="ID"
+                                                Width="50">
+                                    <GridViewColumn.CellTemplate>
+                                        <DataTemplate>
+                                            <StackPanel>
+                                                <TextBlock Text="{Binding UserID}"/>
+                                            </StackPanel>
+                                        </DataTemplate>
+                                    </GridViewColumn.CellTemplate>
+                                </GridViewColumn>
+
+                                <GridViewColumn Header="Имя Фамилия / Возраст"
+                                                  Width="280">
+                                    <GridViewColumn.CellTemplate>
+                                        <DataTemplate>
+                                            <StackPanel Orientation="Horizontal">
+                                                <TextBlock Text="{Binding Name}"/>
+                                                <TextBlock Text=" "/>
+                                                <TextBlock Text="{Binding Surname}"/>
+                                                <TextBlock Text=" / "/>
+                                                <TextBlock Text="{Binding Age}"/>
+                                            </StackPanel>
+                                        </DataTemplate>
+                                    </GridViewColumn.CellTemplate>
+                                </GridViewColumn>
+
+                                <GridViewColumn Header="Username"
+                                                Width="200">
+                                    <GridViewColumn.CellTemplate>
+                                        <DataTemplate>
+                                            <StackPanel>
+                                                <TextBlock Text="{Binding Username}"/>
+                                            </StackPanel>
+                                        </DataTemplate>
+                                    </GridViewColumn.CellTemplate>
+                                </GridViewColumn>
+
+                                <GridViewColumn Header="Должность"
+                                                Width="200">
+                                    <GridViewColumn.CellTemplate>
+                                        <DataTemplate>
+                                            <StackPanel>
+                                                <TextBlock Text="{Binding Role.Name}"/>
+                                            </StackPanel>
+                                        </DataTemplate>
+                                    </GridViewColumn.CellTemplate>
+                                </GridViewColumn>
+                                
+                            </GridView.Columns>
+                        </GridView>
+                    </ListView.View>
+                </ListView>
+
+                <Border  Grid.Row="4" Grid.Column="0" Grid.ColumnSpan="2" Background="Green" Height="60" Width="300" CornerRadius="10">
+                    <Button Name="AddBtn" Style="{StaticResource MyButtonStyle}" Content="Добавить сотрудника" Background="Transparent" Margin="5" Foreground="White" FontSize="23" BorderThickness="0" Click="AddBtn_Click">
+                    </Button>
+                </Border>
+
+                <Border  Grid.Row="4" Grid.Column="3" Grid.ColumnSpan="2" Background="Red" Height="60" Width="300" CornerRadius="10">
+                    <Button Name="DeleteBtn" Style="{StaticResource MyButtonStyle}" Content="Удалить сотрудника" Background="Transparent" Margin="5" Foreground="White" FontSize="23" BorderThickness="0" Click="DeleteBtn_Click">
+                    </Button>
+                </Border>
+
+            </Grid>
+        </Border>
+    </Grid>
+</Page>

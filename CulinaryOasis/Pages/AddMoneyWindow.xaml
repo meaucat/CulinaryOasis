@@ -1,0 +1,45 @@
+﻿<Window x:Class="CulinaryOasis.Pages.AddMoneyWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:CulinaryOasis.Pages"
+        mc:Ignorable="d"
+        Title="AddMoneyWindow" Height="450" Width="800">
+    <Grid>
+        <Border Background="AliceBlue" CornerRadius="0 10 10 0">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+
+                <Grid.RowDefinitions>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                </Grid.RowDefinitions>
+
+                <TextBlock Text="Пополните баланс" FontSize="30" Grid.Row="0" Grid.Column="1" Grid.ColumnSpan="3" HorizontalAlignment="Center" VerticalAlignment="Center" FontWeight="Bold"/>
+                <TextBlock Text="Введите сумму в рублях и нажмите кнопку" FontSize="20" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="5" HorizontalAlignment="Center" VerticalAlignment="Bottom" Margin="0 0 0 0"/>
+
+                <TextBox x:Name="BalanceTB" Grid.Row="2" Grid.Column="1" FontSize="20" Height="40" Width="300" Grid.ColumnSpan="3"  />
+                
+                <Border Grid.Row="3" Grid.Column="1" Grid.ColumnSpan="3" Background="#e29627" Height="50" Width="200" CornerRadius="10" Margin="0 30 0 0">
+                    <Button Name="AddBalanceBtn" Style="{StaticResource MyButtonStyle}" Content="Добавить" Background="Transparent" Margin="5" Foreground="White" FontSize="23" BorderThickness="0" Click="AddBalanceBtn_Click">
+                    </Button>
+                </Border>
+
+                <Border Grid.Row="4" Grid.Column="1" Grid.ColumnSpan="3" Background="#e29627" Height="50" Width="200" CornerRadius="10">
+                    <Button Name="BackBtn" Style="{StaticResource MyButtonStyle}" Content="Назад" Background="Transparent" Margin="5" Foreground="White" FontSize="23" BorderThickness="0" Click="BackBtn_Click">
+                    </Button>
+                </Border>
+            </Grid>
+        </Border>
+    </Grid>
+</Window>

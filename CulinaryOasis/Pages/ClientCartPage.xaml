@@ -1,0 +1,107 @@
+﻿<Page x:Class="CulinaryOasis.Pages.ClientCartPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:CulinaryOasis.Pages"
+      mc:Ignorable="d" 
+      d:DesignHeight="760" d:DesignWidth="1248"
+      Title="ClientCartPage">
+
+    <Grid>
+
+        <Grid.Effect>
+            <DropShadowEffect BlurRadius="30" ShadowDepth="1" Opacity="0.4"/>
+        </Grid.Effect>
+
+
+        <Border Background="AliceBlue" CornerRadius="0 10 10 0">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+
+                <Grid.RowDefinitions>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                </Grid.RowDefinitions>
+
+                <TextBlock Grid.Row="0" Grid.Column="1" Grid.ColumnSpan="3" Text="Корзина" FontSize="60" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+                <TextBlock Text="Для удаления блюда сначала нажмите на него, а потом на кнопку" FontSize="25" Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="4" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0 0 0 55"/>
+
+                <TextBlock x:Name="labelBalanceTB" Text="Баланс:" Grid.Column="3" Grid.Row="0" FontSize="30" HorizontalAlignment="Right" VerticalAlignment="Top" Margin="0,75,184,0" Grid.ColumnSpan="2"/>
+                <TextBlock x:Name="BalanceTB" Grid.Column="4" FontSize="30" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="75,76,0,0"/>
+                <Border VerticalAlignment="Center" Grid.Row="0" Grid.RowSpan="2" Grid.Column="3" Grid.ColumnSpan="2" Background="Green" Height="45" Width="250" CornerRadius="10" Margin="150 0 0 20">
+                    <Button Name="AddMoneyBtn" Style="{StaticResource MyButtonStyle}" Content="Пополнить" Background="Transparent" Margin="5" Foreground="White" FontSize="23" BorderThickness="0" Click="AddMoneyBtn_Click">
+                    </Button>
+                </Border>
+
+                <TextBlock x:Name="labelSumTB" Text="Сумма заказа:" Grid.Column="3" Grid.Row="4" Grid.ColumnSpan="2" FontSize="25" HorizontalAlignment="Right" VerticalAlignment="Top" Margin="0,0,125,0"/>
+                <TextBlock Name="SumTB" Grid.Column="4" Grid.Row="4" Text="" FontSize="25" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="135,0,0,0"/>
+
+                <ListView 
+                    x:Name="CartLV"
+                    Width="800"
+                    Height="400"
+                    Grid.ColumnSpan="4"
+                    Grid.Row="1"
+                    Grid.RowSpan="4"
+                    Margin="0 0 0 50"
+                    FontSize="20" SelectionChanged="CartLV_SelectionChanged" MouseDoubleClick="CartLV_MouseDoubleClick">
+                    <ListView.View>
+                        <GridView>
+                            <GridView.Columns>
+
+                                <GridViewColumn Header="Блюдо"
+                                                  Width="280">
+                                    <GridViewColumn.CellTemplate>
+                                        <DataTemplate>
+                                            <StackPanel Orientation="Horizontal">
+                                                <TextBlock Text="{Binding Dish.Name}"/>
+                                            </StackPanel>
+                                        </DataTemplate>
+                                    </GridViewColumn.CellTemplate>
+                                </GridViewColumn>
+
+                                <GridViewColumn Header="Количество"
+                                                Width="200">
+                                    <GridViewColumn.CellTemplate>
+                                        <DataTemplate>
+                                            <StackPanel>
+                                                <TextBlock Text="{Binding Quantity}"/>
+                                            </StackPanel>
+                                        </DataTemplate>
+                                    </GridViewColumn.CellTemplate>
+                                </GridViewColumn>
+
+                            </GridView.Columns>
+                        </GridView>
+                    </ListView.View>
+                </ListView>
+
+                <Border  Grid.Row="4" Grid.Column="1" Grid.ColumnSpan="2" Background="Red" Height="60" Width="300" CornerRadius="10">
+                    <Button Name="DeleteBtn" Style="{StaticResource MyButtonStyle}" Content="Удалить блюдо" Background="Transparent" Margin="5" Foreground="White" FontSize="23" BorderThickness="0" Click="DeleteBtn_Click">
+                    </Button>
+                </Border>
+
+                <Border VerticalAlignment="Center" Grid.Row="4" Grid.RowSpan="2" Grid.Column="3" Grid.ColumnSpan="2" Background="Green" Height="45" Width="250" CornerRadius="10" Margin="150 0 0 20">
+                    <Button Name="BuyBtn" Style="{StaticResource MyButtonStyle}" Content="Оформить заказ" Background="Transparent" Margin="5" Foreground="White" FontSize="23" BorderThickness="0" Click="BuyBtn_Click">
+                    </Button>
+                </Border>
+
+                <TextBlock x:Name="ErrorTB" Grid.Column="3" Grid.Row="4" Grid.ColumnSpan="2" FontSize="15" Foreground="Red" HorizontalAlignment="Right" VerticalAlignment="Top" Margin="0,90,81,0"/>
+
+
+            </Grid>
+        </Border>
+
+    </Grid>
+
+</Page>

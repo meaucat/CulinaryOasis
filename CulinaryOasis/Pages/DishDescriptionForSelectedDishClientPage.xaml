@@ -1,0 +1,98 @@
+﻿<Page x:Class="CulinaryOasis.Pages.DishDescriptionForSelectedDishClientPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:CulinaryOasis.Pages"
+      mc:Ignorable="d" 
+      d:DesignHeight="760" d:DesignWidth="1248"
+      Title="DishDescriptionForSelectedDishClientPage">
+
+    <Grid>
+        <Grid>
+            <Grid.Effect>
+                <DropShadowEffect BlurRadius="30" ShadowDepth="1" Opacity="0.4"/>
+            </Grid.Effect>
+
+
+            <Border Background="AliceBlue" CornerRadius="0 10 10 0">
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                    </Grid.RowDefinitions>
+
+                    <StackPanel Orientation="Horizontal"
+                            Grid.Row="0"
+                            Grid.Column="0"
+                            Grid.ColumnSpan="2"
+                            HorizontalAlignment="Left"
+                            VerticalAlignment="Top"
+                            Margin="10 0 0 0">
+                        <TextBlock Text="Подробное описание блюда «"
+                           FontSize="40"
+                           Margin="10 20 0 0"/>
+                        <TextBlock x:Name="DishTB"
+                               TextWrapping="Wrap"
+                               Margin="10 20 0 0"
+                               FontSize="40"/>
+                        <TextBlock Text="»"
+                               TextWrapping="Wrap"
+                               Margin="10 20 0 0"
+                               FontSize="40"/>
+                    </StackPanel>
+
+                    <StackPanel Orientation="Horizontal"
+                            Grid.Row="0"
+                            Grid.Column="0"
+                            HorizontalAlignment="Left"
+                            VerticalAlignment="Top"
+                            Margin="10 90 0 0">
+                        <TextBlock Text="Категория: " Margin="10 0 0 0" FontSize="25" FontWeight="Bold"/>
+                        <TextBlock x:Name="CategoryTB" FontSize="25"/>
+                    </StackPanel>
+
+                    <StackPanel Orientation="Horizontal"
+                            Grid.Row="0"
+                                Grid.RowSpan="4"
+                            Grid.Column="0"
+                            Grid.ColumnSpan="2"
+                            HorizontalAlignment="Left"
+                            VerticalAlignment="Top"
+                            Margin="20 130 0 0">
+                        <TextBlock Text="Описание: " FontSize="25" FontWeight="Bold"/>
+                        <TextBlock x:Name="DescriptionTB"
+                               TextWrapping="Wrap"
+                               Width="1000"
+                               FontSize="25"
+                               />
+                    </StackPanel>
+
+                    <Image Grid.Column="0" Grid.Row="1" Grid.RowSpan="2" Margin="0 0 70 30" Name="UserImage" VerticalAlignment="Bottom" Width="380" Height="380" Stretch="Fill" />
+
+                    <TextBlock Grid.Column="1" Grid.Row="2" FontSize="20" HorizontalAlignment="Center" Text="Введите количество "/>
+                    <TextBox Name="QuantityTB" Grid.Column="1" Grid.Row="2" VerticalAlignment="Center" Height="35" Width="300" Margin="0 0 0 155" FontSize="25"/>
+                    <TextBlock Name="ErrorTB" Grid.Column="1" Grid.Row="2" VerticalAlignment="Center" Height="35" Width="300" Margin="0 0 0 90" Foreground="Red" FontSize="15"/>
+                    <Border Grid.Row="2" Grid.Column="1" VerticalAlignment="Top" Background="#e29627" Height="50" Width="300" CornerRadius="10" Margin="0,100,0,0" >
+                        <Button Name="AddCartBtn" Style="{StaticResource MyButtonStyle}" Content="Добавить в корзину" Background="Transparent" Margin="5" Foreground="White" FontSize="23" BorderThickness="0" Click="AddCartBtn_Click">
+                        </Button>
+                    </Border>
+
+                    <Border VerticalAlignment="Top" Grid.Row="1" Grid.RowSpan="3" Background="#e29627" Height="50" Width="300" CornerRadius="10" Margin="0,420,0,0" Grid.Column="1">
+                        <Button Name="BackBtn" Style="{StaticResource MyButtonStyle}" Content="Вернуться назад" Background="Transparent" Margin="5" Foreground="White" FontSize="23" BorderThickness="0" Click="BackBtn_Click">
+                        </Button>
+                    </Border>
+
+                </Grid>
+            </Border>
+
+
+        </Grid>
+
+    </Grid>
+</Page>

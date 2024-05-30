@@ -1,0 +1,119 @@
+﻿<Page x:Class="CulinaryOasis.Pages.OrdersPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:CulinaryOasis.Pages"
+      mc:Ignorable="d" 
+      d:DesignHeight="760" d:DesignWidth="1248"
+      Title="OrdersPage">
+
+    <Grid>
+
+        <Grid.Effect>
+            <DropShadowEffect BlurRadius="30" ShadowDepth="1" Opacity="0.4"/>
+        </Grid.Effect>
+        
+        
+        <Border Background="AliceBlue" CornerRadius="0 10 10 0">
+            <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+
+            <Grid.RowDefinitions>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+
+            <TextBlock Text="Список заказов" FontSize="40" Grid.Row="0" Grid.Column="1" Grid.ColumnSpan="3" HorizontalAlignment="Center" VerticalAlignment="Center" FontWeight="Bold"/>
+            <TextBlock Text="Двойным кликом можно подробнее узнать о заказе" FontSize="25" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="5" HorizontalAlignment="Center" VerticalAlignment="Bottom" Margin="0 0 0 20"/>
+
+
+            <ListView 
+                    x:Name="OrdersLV"
+                    Width="1000"
+                    Height="450"
+                    Grid.ColumnSpan="5"
+                    Grid.Row="1"
+                    Grid.RowSpan="3"
+                    FontSize="20" MouseDoubleClick="OrdersLV_MouseDoubleClick" >
+                <ListView.View>
+                    <GridView>
+                        <GridView.Columns>
+
+                            <GridViewColumn Header="ID"
+                                Width="50">
+                                <GridViewColumn.CellTemplate>
+                                    <DataTemplate>
+                                        <StackPanel>
+                                            <TextBlock Text="{Binding OrderID}"/>
+                                        </StackPanel>
+                                    </DataTemplate>
+                                </GridViewColumn.CellTemplate>
+                            </GridViewColumn>
+
+                            <GridViewColumn Header="Дата заказа"
+                                  Width="250">
+                                <GridViewColumn.CellTemplate>
+                                    <DataTemplate>
+                                        <StackPanel Orientation="Horizontal">
+                                            <TextBlock Text="{Binding OrderDate}"/>
+                                        </StackPanel>
+                                    </DataTemplate>
+                                </GridViewColumn.CellTemplate>
+                            </GridViewColumn>
+
+                            <GridViewColumn Header="Цена заказа"
+                                Width="200">
+                                <GridViewColumn.CellTemplate>
+                                    <DataTemplate>
+                                        <StackPanel>
+                                            <TextBlock Text="{Binding TotalPrice}"/>
+                                        </StackPanel>
+                                    </DataTemplate>
+                                </GridViewColumn.CellTemplate>
+                            </GridViewColumn>
+
+                            <GridViewColumn Header="Cтатус"
+                                                Width="200">
+                                <GridViewColumn.CellTemplate>
+                                    <DataTemplate>
+                                        <StackPanel>
+                                            <TextBlock Text="{Binding Status}"/>
+                                        </StackPanel>
+                                    </DataTemplate>
+                                </GridViewColumn.CellTemplate>
+                            </GridViewColumn>
+
+                            <GridViewColumn Header="Имя пользователя"
+                                                Width="230">
+                                <GridViewColumn.CellTemplate>
+                                    <DataTemplate>
+                                        <StackPanel>
+                                            <TextBlock Text="{Binding UserID.Username}"/>
+                                        </StackPanel>
+                                    </DataTemplate>
+                                </GridViewColumn.CellTemplate>
+                            </GridViewColumn>
+
+                        </GridView.Columns>
+                    </GridView>
+                </ListView.View>
+            </ListView>
+            
+            </Grid>
+        </Border>
+
+    
+
+
+    </Grid>
+</Page>
